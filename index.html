@@ -23,35 +23,43 @@ window.onload = function (){
 <div id='content'>
 
 <h1>Barras de proceso.</h1>
-
+	
 <p><img src="img/table.jpg" id='img_table_dance' alt="Barra del table dance" title="" /></p>
 
 <p>Hoy quiero platicar de las barras pero no de las barras que estas penzando <code>':-0</code> mas bien de las <strong>barras de proceso CSS</strong>.</p>
 
-<p>Las barras de proceso, son una forma grafica de la representación de datos, estos datos en su mayoria se suelen representar de forma porcentual.</p>
+<p><strong>Las barras de proceso, son una forma gráfica de la representación de datos</strong>, los cuales su mayoría suelen ser representados en forma porcentual.</p>
 
-<p>Por ejemplo si en un sistema tenemos 10 usuarios de los cuales 5 son administradores entonces tenemos un 50% de usuarios administradores, los cuales los podemos representar de la siguiente manera:</p>
+<p>Por ejemplo si en un sistema tenemos: <strong>10 usuarios</strong> de los cuales <strong>5 son administradores</strong> entonces el <strong>50% de usuarios son administradores</strong>, los cuales los queremos representar con un código <strong>HTML</strong> simple y fácil de generar, por ejemplo:</p>
 
 <script src="https://gist.github.com/2587948.js?file=01.ejemplo_basico_css.html"></script>
 
-<p>Bien pues este pequeño manual consiste en explicar una metodologia que nos sirva en generar estas barras, al tiempo de generar discusión al respecto.</p>
+<h3>Resultado</h3>
 
-<h2>Haciendo las barras con css</h2>
+<div class="marco_barra">
+    <div class="barra_avance" style="width: 50%;">50%</div>
+</div>
 
-<p>Personalmente considero que la mejor forma de hacerlo en con puro <strong>css</strong>. La barra de proceso anterior esta hecha con código <strong>CSS</strong> el cual se le asigno a 2 <em>divs</em> de nuestro código <strong>HTML</strong> siguiente:</p>
+<p>Bien pues este pequeño manual consiste en explicar una metodología que nos permita generar estas barras, al tiempo que intenta generar discusión al respecto.</p>
 
-<p>Podemos ver que tenemos 2 divs, el primero es el contenedor el cual esta instanciado a la clase <strong>marco_barra</strong>, el 2do es propiamente la barra el cual es contenida y pertenece a la clase <strong>barra_avance</strong>, como lo podemos ver en la siguiente imagen.</p>
+<h2>Haciendo las barras con CSS</h2>
+
+<p>Personalmente considero que la mejor forma de hacerlo en con puro <strong>CSS</strong>. La barra de proceso anterior esta hecha con puro código <strong>CSS</strong> y el <strong>código HTML anterior</strong>.</p>
+
+<p>Podemos ver en <strong>código HTML anterior</strong> que <strong>tenemos 2 divs</strong>,los cuales intento explicar de forma gráfica en la siguiente imagen:</p>
 
 <p><img src="img/barra_explicacion.png" alt="Barra de procesos y sus partes" title="" /></p>
 
-<p>Como podemo ver las clases:</p>
+<h3>Como podemo ver las clases son:</h3>
 
 <ul>
-<li><p><strong>marco_barra</strong> Define la parte gris clara(borde redondeado),el fondo gris obsculo, las sombras del contorno del marco, entre otras cosas.</p></li>
-<li><p><strong>barra_avance</strong> Define la barra de proceso es la parte del gradiente azul, al tiempo que define la tipografia que nos indica que va avanzado un 50%.</p></li>
+<li><p><strong>marco_barra:</strong> Define la parte gris clara(borde redondeado),el fondo gris obsculo, las sombras del contorno del marco, entre otras cosas.</p></li>
+<li><p><strong>barra_avance:</strong> Define la barra de proceso es la parte del gradiente azul, al tiempo que define la tipografia que nos indica que va avanzado un 50%.</p></li>
 </ul>
 
-<p>Bien ahora atienda al siguiente código <strong>css</strong>:</p>
+<h3>Código CSS Base:</h3>
+
+<p>Bien ahora atienda al siguiente código <strong>CSS</strong>:</p>
 
 <script src="https://gist.github.com/2587948.js?file=02.codigo_barras_base.css"></script>
 
@@ -59,11 +67,18 @@ window.onload = function (){
 
 <p><img src="img/combitaciones.gif" alt="combitaciones" title="" /></p>
 
-<p>Este codigo <strong>css</strong> intenta ser lo más <strong>crossbrowser</strong> posible, imaginemos que queremos poner las barras de en un espacio mas pequeño o quizas necesitamos barras de distintos colores, tratare de explicar como conseguir este comportamiento explicando el 1er caso, para esto vamos a definir dos clases la clase <strong>mini</strong> para el marco y la clase <strong>mini</strong> contenida dentro de otra clase <strong>mini</strong> como se puede ver en el siguiente codigo <strong>HTML</strong>:</p>
+<p>Este código <strong>CSS anterior</strong> intenta ser lo más <strong>Cross-browser</strong> y reutilizable posible, bien partiendo de este hecho ahora imaginemos que:</p>
+
+<ul>
+<li><strong>1).-</strong> Queremos poner las barras de en un espacio mas pequeño ó</li>
+<li><strong>2).-</strong> quizas necesitamos barras de distintos colores.</li>
+</ul>
+
+<p>Intentare explicar como conseguir este comportamiento apartir del <strong>1er Caso</strong>, para esto vamos a definir dos clases nuevas, la clase <strong>mini</strong> para el marco y la clase <strong>mini</strong> contenida dentro de otra clase <strong>mini</strong>,este anidamiento lo podemos ver en el siguiente código <strong>HTML</strong>:</p>
 
 <script src="https://gist.github.com/2587948.js?file=03.ejemplo2_barra_mini.html"></script>
 
-<p>Los cambios necesarios como se puede ver en el siguiente código <strong>CSS</strong> que se le agregara al código antes mostrado:</p>
+<p>Ahora tenemos que agregar el siguiente código <strong>CSS</strong> el cual sólo consisten en las diferencias entre ambos estilos, como se muestra acontinuación:</p>
 
 <script src="https://gist.github.com/2587948.js?file=04.codigo_barras_mini.css"></script>
 
@@ -77,7 +92,9 @@ window.onload = function (){
 
 <p><img src="img/movimiento.gif" alt="Barra con movimiento" title="" /></p>
 
-<p>Tomando esta logica podemos agregar tipos de barras como necesitemos, para esto vamos agregar una barra de color roja del tipo animada, esto lo haremos con una imagen <strong>gif</strong> que se va ir desplazando.</p>
+<p>Tomando esta lógica, ahora podemos agregar mas colores a nuestras barras e ir agregando tipos de barras como necesitemos.</p>
+
+<p>Bien ahora quiero explicar como hacer una barra con un imagen animada. Vamos agregar una barra de color roja del tipo animada, a partir de una imagen <strong>gif</strong> que se va ir desplazando.</p>
 
 <p>Para la barra animada lo primero que necesitamos es la imagen <strong>gif</strong> la puedes hacer con el <a href="http://inkscape.org/"><strong>inkscape</strong></a> y <a href="http://www.gimp.org/"><strong>gimp</strong></a>, el hacer una animación en la barra es muy similar a un <strong>sprite csss</strong> solo que posteriormente tienes que generrar la imagen animada con el <a href="http://www.gimp.org/"><strong>gimp</strong></a>(adjunto los archivos).</p>
 
@@ -89,6 +106,18 @@ window.onload = function (){
 
 <p><img src="img/generando_gif.png" alt="distribucion horizontal uniforme" title="" /></p>
 
+<h2>Código CSS</h2>
+
+<p>Partiendo que tenemos la imagen <code>barra_animada.gif</code> podemos generar nuestra barra animada:</p>
+
+<script src="https://gist.github.com/2587948.js?file=05.barras_animadas.css"></script>
+
+<h2>Código HTML</h2>
+
+<p>La llamada es similar a cuando mandamos a llamar la barra <strong>mini</strong>:</p>
+
+<script src="https://gist.github.com/2587948.js?file=06.ejemplo_barra_animada.html"></script>
+
 <h3>Ressultado</h3>
 
 <div class="marco_barra animada">
@@ -99,11 +128,11 @@ window.onload = function (){
 
 <p><img src="img/nocaut.gif" alt="Barra con movimiento con Javascript" title="" /></p>
 
-<p>Si queremos darle la animación de como se va uncrementando una barra usted lo primero que tiene que hacer es agregarle un identificador a la barra:</p>
+<p>Si queremos darle la animación de como se va incrementando una barra usted lo primero que tenemos que hacer es agregarle un identificador a la barra:</p>
 
-<h3>Codigo HTML</h3>
+<h3>Código HTML</h3>
 
-<script src="https://gist.github.com/2587948.js?file=05.ejemplo_barra_animada.html"></script>
+<script src="https://gist.github.com/2587948.js?file=07.ejemplo_barra_animada_js.html"></script>
 
 <p>Posteriormente puede hacer una funcion que reciba 3 paramentros el:</p>
 
@@ -113,17 +142,17 @@ window.onload = function (){
 <li>El <strong>intervalo</strong> de la transición(en milisegundos).</li>
 </ul>
 
-<h3>Función animarBarra JavaScript:</h3>
+<h3>Función <code>animarBarra</code> JavaScript:</h3>
 
 <p>Dejo aquí un ejemplo de la funcion la cual la puedes adaptar a tus necesidades:</p>
 
-<script src="https://gist.github.com/2587948.js?file=06.codigo_animacion_barras.js"></script>
+<script src="https://gist.github.com/2587948.js?file=08.codigo_animacion_barras.js"></script>
 
 <h3>Llamada</h3>
 
 <p>En este caso vamos a llamar a la función para que nos anime el elemento con id <strong>barra_animada_js</strong>, donde deseamos un incremento de 10 cada 200milisegundos, como se muestra:</p>
 
-<script src="https://gist.github.com/2587948.js?file=07.ejemplo_llamada_animacion.html"></script>
+<script src="https://gist.github.com/2587948.js?file=09.ejemplo_llamada_animacion.html"></script>
 
 <h3>Resultado</h3>
 
@@ -133,7 +162,7 @@ window.onload = function (){
 
 <h2>Finalizando con un frameWork!.</h2>
 
-<p>Finalmente este principio <strong>css</strong> es tambien empleado en la interfaz de usuario del <strong>jQuery</strong>, la unica diferencia es que:</p>
+<p>Finalmente este principio <strong>css</strong> es tambien empleado en la interfaz de usuario del <a href="http://jqueryui.com/demos/progressbar/"><strong>jQuery</strong></a>, la unica diferencia es que:</p>
 
 <ul>
 <li>La clase <strong>marco_barra</strong> es nombrada como <strong>ui-progressbar</strong>.</li>
@@ -153,7 +182,7 @@ window.onload = function (){
 <li><a href="http://jqueryui.com/demos/progressbar/">http://jqueryui.com/demos/progressbar/</a></li>
 </ul>
 
-<p>Estos principios defienen buenas practicas sin embargo personalmente derrepente siento que nos genera codigo extra que muchas veces no lo necesitamos p.e. si en algun proyecto solo vamos a necesitar una unica clase de barra(con un unico comportamiento) entonces la mejor opción seria seguir estos principios y generar nuestro propio código <em>css</em> y <em>javascript</em>(ó en su defecto quitar la '<em>paja extra</em>') lo cual hara más ligera la carga para nuestro navegador ademas que el tamaño de la descarga de nuestras librerias sera mucho menor.</p>
+<p>Estos principios defienen buenas practicas sin embargo personalmente derrepente siento que nos genera código extra que muchas veces no lo necesitamos p.e. si en algun proyecto solo vamos a necesitar una unica clase de barra(con un unico comportamiento) entonces la mejor opción seria seguir estos principios y generar nuestro propio código <em>css</em> y <em>javascript</em>(ó en su defecto quitar la '<em>paja extra</em>') lo cual hara más ligera la carga para nuestro navegador ademas que el tamaño de la descarga de nuestras librerias sera mucho menor.</p>
 
 <h2>Comentarios.</h2>
 
@@ -163,7 +192,6 @@ window.onload = function (){
 </blockquote>
 
 <p></blockquote></p>
-
 
 </div>
 </body>

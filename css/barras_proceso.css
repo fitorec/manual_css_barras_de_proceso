@@ -62,14 +62,12 @@ div.mini div.mini{
 	border-radius:0 4px 4px 0;
 }
 
-/* definicion para las barras minis */
-div.animada{
-	
-}
+/* definición para las barras animadas */
+div.animada{ }
 
 div.animada div.animada{
-	/* trataremos de poner un fondo con un gradiente si no se puede lo pondra con un color solido */
-	background: url(barra_animada.gif);
+	/* Ahora agregamos una imagen la cual se repite en el eje X*/
+	background: url(barra_animada.gif) repeat-x;
 	/* agregamos el borde para que de un efecto de sobre-marco */
 	border:1px solid #774D36;
 	border-top:1px solid #DE7B4B;
