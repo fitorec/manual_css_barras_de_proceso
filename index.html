@@ -31,20 +31,13 @@ window.onload = function (){
 
 <p>Por ejemplo si en un sistema tenemos 10 usuarios de los cuales 5 son administradores entonces tenemos un 50% de usuarios administradores, los cuales los podemos representar de la siguiente manera:</p>
 
-<div class="marco_barra">
-    <div class="barra_avance" style="width: 50%;">50%</div>
-</div>
+<script src="https://gist.github.com/2587948.js?file=01.ejemplo_basico_css.html"></script>
 
 <p>Bien pues este pequeño manual consiste en explicar una metodologia que nos sirva en generar estas barras, al tiempo de generar discusión al respecto.</p>
 
 <h2>Haciendo las barras con css</h2>
 
 <p>Personalmente considero que la mejor forma de hacerlo en con puro <strong>css</strong>. La barra de proceso anterior esta hecha con código <strong>CSS</strong> el cual se le asigno a 2 <em>divs</em> de nuestro código <strong>HTML</strong> siguiente:</p>
-
-<pre><code>&lt;div class="marco_barra"&gt;
-    &lt;div class="barra_avance" style="width: 50%;"&gt;50%&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
 
 <p>Podemos ver que tenemos 2 divs, el primero es el contenedor el cual esta instanciado a la clase <strong>marco_barra</strong>, el 2do es propiamente la barra el cual es contenida y pertenece a la clase <strong>barra_avance</strong>, como lo podemos ver en la siguiente imagen.</p>
 
@@ -59,53 +52,7 @@ window.onload = function (){
 
 <p>Bien ahora atienda al siguiente código <strong>css</strong>:</p>
 
-<pre><code><b>div.marco_barra</b>, .ui-progressbar {
-    background: #282828;
-    border: 5px solid #BFBFBF;
-    width: 100%;
-    height: 30px;
-    padding: 0;
-    /* trataremos de poner las esquinas redondeadas */
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    /* trataremos de poner sombras tanto internamente como externamente del marco de la barra de proceso */
-    -webkit-box-shadow:inset 2px 2px 5px #212121,inset -2px -2px 5px #000000,5px 5px 5px #CDDDE6;
-    -moz-box-shadow:inset 2px 2px 5px #212121,inset -2px -2px 5px #000000,5px 5px 5px #CDDDE6;
-    -ms-box-shadow:inset 2px 2px 5px #212121,inset -2px -2px 5px #000000,5px 5px 5px #CDDDE6;
-    -o-box-shadow: inset 2px 2px 5px #212121,inset -2px -2px 5px #000000,5px 5px 5px #CDDDE6;
-    box-shadow:inset 2px 2px 5px #212121,inset -2px -2px 5px #000000,5px 5px 5px #CDDDE6;
-}
-div.marco_barra <b>div.barra_avance</b>,
-.ui-progressbar .ui-progressbar-value{
-    height: 28px;
-    /* agregamos el borde para que de un efecto de sobre-marco */
-    border:1px solid #365077;
-    border-top:1px solid #4BA3DE;
-    border-left:1px solid #4BA3DE;
-    /* trataremos de poner un fondo con un gradiente si no se puede lo pondra con un color solido */
-    background: #00A5D4;
-    background-repeat: repeat-x;
-    background-image: -moz-linear-gradient(top, #00A5D4, #006C8B);
-    background-image: -ms-linear-gradient(top, #FF5000, #003364);
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#FF5000), to(#003364));
-    background-image: -webkit-linear-gradient(top, #FF5000, #003364);
-    background-image: -o-linear-gradient(top, #FF5000, #003364);
-    background-image: linear-gradient(top, #FF5000, #003364);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF5000', endColorstr='#003364',GradientType=0 );
-    /* trataremos de poner las esquinas redondeadas */
-    -moz-border-radius:0 5px 5px 0;
-    -webkit-border-radius:0 5px 5px 0;
-    -o-border-radius:0 5px 5px 0;
-    border-radius:0 5px 5px 0;
-    /* Cuestiones relacionadas con la tipografia */
-    color: #000;
-    font-weight: bold;
-    font-size: 20px;
-    text-shadow: 1px 1px 1px #66CFED,-1px -1px 2px #23A1C5;
-    text-align: right;
-}</code></pre>
+<script src="https://gist.github.com/2587948.js?file=02.codigo_barras_base.css"></script>
 
 <h2>Haciendo combinaciones(Combos).</h2>
 
@@ -113,29 +60,11 @@ div.marco_barra <b>div.barra_avance</b>,
 
 <p>Este codigo <strong>css</strong> intenta ser lo más <strong>crossbrowser</strong> posible, imaginemos que queremos poner las barras de en un espacio mas pequeño o quizas necesitamos barras de distintos colores, tratare de explicar como conseguir este comportamiento explicando el 1er caso, para esto vamos a definir dos clases la clase <strong>mini</strong> para el marco y la clase <strong>mini</strong> contenida dentro de otra clase <strong>mini</strong> como se puede ver en el siguiente codigo <strong>HTML</strong>:</p>
 
-<pre><code>&lt;div class="marco_barra mini" style="width: 200px;"&gt;
-    &lt;div class="barra_avance mini" style="width: 50%;"&gt;50%&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<script src="https://gist.github.com/2587948.js?file=03.ejemplo2_barra_mini.html"></script>
 
 <p>Los cambios necesarios como se puede ver en el siguiente código <strong>CSS</strong> que se le agregara al código antes mostrado:</p>
 
-<pre><code>/* definicion para las barras minis */
-div.mini{
-    border: 2px solid #BFBFBF;
-    height: 20px;
-}
-
-div.mini div.mini{
-    height: 18px;
-    font-weight: bold;
-    font-size: 1px;
-    -moz-border-radius:0 4px 4px 0;
-    -webkit-border-radius:0 4px 4px 0;
-    -o-border-radius:0 4px 4px 0;
-    border-radius:0 4px 4px 0;
-}
-</code></pre>
+<script src="https://gist.github.com/2587948.js?file=04.codigo_barras_mini.css"></script>
 
 <h3>Ressultado</h3>
 
@@ -173,10 +102,7 @@ div.mini div.mini{
 
 <h3>Codigo HTML</h3>
 
-<pre><code>&lt;div class="marco_barra animada"&gt;
-    &lt;div id="barra_animada_js" class="barra_avance animada" style="width: 50%;"&gt;50%&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<script src="https://gist.github.com/2587948.js?file=05.ejemplo_barra_animada.html"></script>
 
 <p>Posteriormente puede hacer una funcion que reciba 3 paramentros el:</p>
 
@@ -190,34 +116,13 @@ div.mini div.mini{
 
 <p>Dejo aquí un ejemplo de la funcion la cual la puedes adaptar a tus necesidades:</p>
 
-<pre><code>&lt;script language="Javascript"  type="text/javascript"&gt;
-    /*Anima una barra */
-    function animarBarra(id, incremento, intervalo){
-        e = document.getElementById(id);
-        var val = parseInt(e.innerHTML) + parseInt(incremento);
-        if(val&gt;100){
-            val=(incremento&gt;0)? 0 : 100;
-        }else{
-            if(val&lt;0){
-                val=(incremento&lt;0)? 100 : 0;
-        }}
-        e.innerHTML = val+'%';
-        e.style.width = val+'%';
-        setTimeout("animarBarra('"+id+"', "+incremento+", "+intervalo+")", intervalo);
-    }
-&lt;/script&gt;
-</code></pre>
+<script src="https://gist.github.com/2587948.js?file=06.codigo_animacion_barras.js"></script>
 
 <h3>Llamada</h3>
 
 <p>En este caso vamos a llamar a la función para que nos anime el elemento con id <strong>barra_animada_js</strong>, donde deseamos un incremento de 10 cada 200milisegundos, como se muestra:</p>
 
-<pre><code>&lt;script language="Javascript"  type="text/javascript"&gt;
-    window.onload = function (){
-        animarBarra('barra_animada_js',10,200);
-    }
-&lt;/script&gt;
-</code></pre>
+<script src="https://gist.github.com/2587948.js?file=07.ejemplo_llamada_animacion.html"></script>
 
 <h3>Resultado</h3>
 
@@ -257,6 +162,7 @@ div.mini div.mini{
 </blockquote>
 
 <p></blockquote></p>
+
 
 </div>
 </body>
