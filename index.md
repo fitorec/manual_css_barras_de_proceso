@@ -218,7 +218,7 @@ Bien pues con esto y siguiendo la documentación de **jQuery ui** podemos animar
 Sigiendo estos principios basicos de css y javascript podemos encontrar varios algunos proyectos como:
 
  - <http://jsullivan.github.com/CSS3-Progress-bars>
- - <http://jqueryui.com/demos/>
+ - <http://jqueryui.com/demos/progressbar/>
 
 Estos principios defienen buenas practicas sin embargo personalmente derrepente siento que nos genera codigo extra que muchas veces no lo necesitamos p.e. si en algun proyecto solo vamos a necesitar una unica clase de barra(con un unico comportamiento) entonces la mejor opción seria seguir estos principios y generar nuestro propio código **css** y **javascript**(ó en su defecto quitar la '_paja extra_') lo cual hara más ligera la carga para nuestro navegador ademas que el tamaño de la descarga de nuestras librerias sera mucho menor.
 
