@@ -117,7 +117,7 @@ En este caso vamos a llamar a la función para que nos anime el elemento con id 
 
 ## Finalizando con un frameWork!.
 
-Finalmente este principio **css** es tambien empleado en la interfaz de usuario del **jQuery**, la unica diferencia es que:
+Finalmente este principio **css** es tambien empleado en la interfaz de usuario del [**jQuery**](http://jqueryui.com/demos/progressbar/), la unica diferencia es que:
 
  - La clase **marco_barra** es nombrada como **ui-progressbar**.
  - La clase **barra_avance** es nombrada como **ui-progressbar-value**.
@@ -129,7 +129,7 @@ Bien pues con esto y siguiendo la documentación de [**jQuery ui**](http://jquer
 
 ## Conclusiones.
 
-Sigiendo estos principios basicos de _css_ y _javascript_ podemos encontrar varios algunos proyectos como:
+Siguiendo estos principios basicos de _css_ y _javascript_ podemos encontrar varios algunos proyectos como:
 
  - <http://jsullivan.github.com/CSS3-Progress-bars>
  - <http://jqueryui.com/demos/progressbar/>
