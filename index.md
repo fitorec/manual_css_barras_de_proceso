@@ -2,11 +2,10 @@
 
 ![Barra del table dance](img_table_dance)
 
-Hoy quiero platicar de las barras pero no de las barras que estas penzando `':-0` mas bien de las **barras de proceso CSS**.
+Hoy quiero platicar de las barras pero no de las que estas penzando `':-0`. Más bien de las **barras de proceso CSS**.
 
 
-
-**Las barras de proceso, son una forma gráfica de la representación de datos**, los cuales su mayoría suelen ser representados en forma porcentual.
+**Las barras de proceso, son una forma gráfica de la representación de datos**, los cuales en su mayoría suelen ser representados en forma porcentual.
 
 Por ejemplo si en un sistema tenemos: **10 usuarios** de los cuales **5 son administradores** entonces el **50% de usuarios son administradores**, los cuales los queremos representar con un código **HTML** simple y fácil de generar, por ejemplo:
 
@@ -34,7 +33,7 @@ Podemos ver en **código HTML anterior** que **tenemos 2 divs**,los cuales inten
 
  - **marco\_barra:** Define la parte gris clara(borde redondeado),el fondo gris obsculo, las sombras del contorno del marco, entre otras cosas.
  
- - **barra\_avance:** Define la barra de proceso es la parte del gradiente azul, al tiempo que define la tipografia que nos indica que va avanzado un 50%.
+ - **barra\_avance:** Define la barra de proceso es la parte del gradiente azul, al tiempo que define la tipografia que nos indica que el parcentaje. En este caso **50%**.
 
 ### Código CSS Base:
 
@@ -147,9 +146,10 @@ Finalmente este principio **css** es tambien empleado en la interfaz de usuario 
  - La clase **marco_barra** es nombrada como **ui-progressbar**.
  - La clase **barra_avance** es nombrada como **ui-progressbar-value**.
 
-Bien pues con esto y siguiendo la documentación de [**jQuery ui**](http://jqueryui.com/demos/progressbar/) podemos animar una barra con el siguiente código.
+Explicado esto y siguiendo la documentación de [**jQuery ui**](http://jqueryui.com/demos/progressbar/) podemos geneara las barras y con el mismo [código CSS base](https://gist.github.com/2587948#file_02.codigo_barras_base.css) podemos darle estilo (notar que se definen **ui-progressbar** y **ui-progressbar-value** en dicho código).
 
-<a href="https://github.com/fitorec/manual_css_barras_de_proceso/downloads" class="get-code">Descargar Código fuente</a><br><br>
+
+<br /><a href="https://github.com/fitorec/manual_css_barras_de_proceso/downloads" class="get-code">Descargar archivos fuente</a><br /><br />
 
 
 ## Conclusiones.
