@@ -6,23 +6,10 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/barras_proceso.css" />
+	<script language="Javascript"  type="text/javascript" src="js/barras.js"></script>
 <script language="Javascript"  type="text/javascript">
 window.onload = function (){
 		animarBarra('barra_animada_js',10,200);
-}
-/*Anima una barra */
-function animarBarra(id, incremento, intervalo){
-	e = document.getElementById(id);
-	var val = parseInt(e.innerHTML) + parseInt(incremento);
-	if(val>100){
-		val=(incremento>0)? 0 : 100;
-	}else{
-		if(val<0){
-			val=(incremento<0)? 100 : 0;
-	}}
-	e.innerHTML = val+'%';
-	e.style.width = val+'%';
-	setTimeout("animarBarra('"+id+"', "+incremento+", "+intervalo+")", intervalo);
 }
 </script>
 <style type="text/css" media="all">
