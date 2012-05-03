@@ -14,7 +14,7 @@ Por ejemplo si en un sistema tenemos 10 usuarios de los cuales 5 son administrad
 	<div class="barra_avance" style="width: 50%;">50%</div>
 </div>
 
-Bien pues este pequeño manual consiste en explicar una metodologia que nos sirva en generar estas barras, al tiempo que discusión al respecto.
+Bien pues este pequeño manual consiste en explicar una metodologia que nos sirva en generar estas barras, al tiempo de generar discusión al respecto.
 
 
 ## Haciendo las barras con css
@@ -129,13 +129,13 @@ Los cambios necesarios como se puede ver en el siguiente código **CSS** que se 
 
 Tomando esta logica podemos agregar tipos de barras como necesitemos, para esto vamos agregar una barra de color roja del tipo animada, esto lo haremos con una imagen **gif** que se va ir desplazando.
 
-Para la barra animada lo primero que necesitamos es la imagen **gif** la puedes hacer con el **inkscape** y **gimp**, el hacer una animación en la barra es muy similar a un **sprite csss** solo que posteriormente tienes que generrar la imagen animada con el **gimp**(adjunto los archivos).
+Para la barra animada lo primero que necesitamos es la imagen **gif** la puedes hacer con el [**inkscape**](http://inkscape.org/) y [**gimp**](http://www.gimp.org/), el hacer una animación en la barra es muy similar a un **sprite csss** solo que posteriormente tienes que generrar la imagen animada con el [**gimp**](http://www.gimp.org/)(adjunto los archivos).
 
 Lo primero que tienes que hacer es una _distribucion uniforme_ sobre los elementos que necesitas como se puede ver en la siguiente imagen:
 
 ![distribucion horizontal uniforme](img/distribucion_uniforme.png)
 
-Posteriormente se exportan las imagenes base y con estas se genera una animacion con el **gimp** en este caso seran 3 capaz generando con esto una animación con 3 transiciones cada una sera cambiada en un intervalo de 333 _milisegundos_.
+Posteriormente se exportan las imagenes base y con estas se genera una animacion con el [**gimp**](http://www.gimp.org/) en este caso seran 3 capaz generando con esto una animación con 3 transiciones cada una sera cambiada en un intervalo de 333 _milisegundos_.
 
 ![distribucion horizontal uniforme](img/generando_gif.png)
 
@@ -210,21 +210,23 @@ Finalmente este principio **css** es tambien empleado en la interfaz de usuario 
  - La clase **marco_barra** es nombrada como **ui-progressbar**.
  - La clase **barra_avance** es nombrada como **ui-progressbar-value**.
 
-Bien pues con esto y siguiendo la documentación de **jQuery ui** podemos animar una barra con el siguiente código.
+Bien pues con esto y siguiendo la documentación de [**jQuery ui**](http://jqueryui.com/demos/progressbar/) podemos animar una barra con el siguiente código.
+
+<a href="https://github.com/fitorec/manual_css_barras_de_proceso/downloads" class="get-code">Descargar Código fuente</a><br><br>
 
 
 ## Conclusiones.
 
-Sigiendo estos principios basicos de css y javascript podemos encontrar varios algunos proyectos como:
+Sigiendo estos principios basicos de _css_ y _javascript_ podemos encontrar varios algunos proyectos como:
 
  - <http://jsullivan.github.com/CSS3-Progress-bars>
  - <http://jqueryui.com/demos/progressbar/>
 
-Estos principios defienen buenas practicas sin embargo personalmente derrepente siento que nos genera codigo extra que muchas veces no lo necesitamos p.e. si en algun proyecto solo vamos a necesitar una unica clase de barra(con un unico comportamiento) entonces la mejor opción seria seguir estos principios y generar nuestro propio código **css** y **javascript**(ó en su defecto quitar la '_paja extra_') lo cual hara más ligera la carga para nuestro navegador ademas que el tamaño de la descarga de nuestras librerias sera mucho menor.
+Estos principios defienen buenas practicas sin embargo personalmente derrepente siento que nos genera codigo extra que muchas veces no lo necesitamos p.e. si en algun proyecto solo vamos a necesitar una unica clase de barra(con un unico comportamiento) entonces la mejor opción seria seguir estos principios y generar nuestro propio código _css_ y _javascript_(ó en su defecto quitar la '_paja extra_') lo cual hara más ligera la carga para nuestro navegador ademas que el tamaño de la descarga de nuestras librerias sera mucho menor.
 
 ##Comentarios.
 
->>Lo siento estoy buscando algun mecanismo de agregar comentarios en esta sección.
+>>Lo siento estoy buscando algun mecanismo de agregar comentarios en esta sección, pero me puedes comentar en [**@fitorec**](https://twitter.com/fitorec).
 
 
 [img_table_dance]: img/table.jpg  "Barra - Table dance"
