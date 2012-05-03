@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+<title>Barras de proceso.</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/barras_proceso.css" />
+<script language="Javascript"  type="text/javascript">
+window.onload = function (){
+		animarBarra('barra_animada_js',10,200);
+}
+/*Anima una barra */
+function animarBarra(id, incremento, intervalo){
+	e = document.getElementById(id);
+	var val = parseInt(e.innerHTML) + parseInt(incremento);
+	if(val>100){
+		val=(incremento>0)? 0 : 100;
+	}else{
+		if(val<0){
+			val=(incremento<0)? 100 : 0;
+	}}
+	e.innerHTML = val+'%';
+	e.style.width = val+'%';
+	setTimeout("animarBarra('"+id+"', "+incremento+", "+intervalo+")", intervalo);
+}
+</script>
+<style type="text/css" media="all">
+#img_table_dance{
+	border:10px solid #111;
+}
+</style>
+</head>
+<body>
+<div id='content'>
+
+<h1>Barras de proceso.</h1>
+
+<p><img src="img/table.jpg" id='img_table_dance' alt="Barra del table dance" title="" /></p>
+
+<p>Hoy quiero platicar de las barras pero no de las barras que estas penzando <code>':-0</code> mas bien de las <strong>barras de proceso CSS</strong>.</p>
+
+<p>Las barras de proceso, son una forma grafica de la representación de datos, estos datos en su mayoria se suelen representar de forma porcentual.</p>
+
+<p>Por ejemplo si en un sistema tenemos 10 usuarios de los cuales 5 son administradores entonces tenemos un 50% de usuarios administradores, los cuales los podemos representar de la siguiente manera:</p>
+
+<div class="marco_barra">
+    <div class="barra_avance" style="width: 50%;">50%</div>
+</div>
+
+<p>Bien pues este pequeño manual consiste en explicar una metodologia que nos sirva en generar estas barras, al tiempo que discusión al respecto.</p>
+
+<h2>Haciendo las barras con css</h2>
+
+<p>Personalmente considero que la mejor forma de hacerlo en con puro <strong>css</strong>. La barra de proceso anterior esta hecha con código <strong>CSS</strong> el cual se le asigno a 2 <em>divs</em> de nuestro código <strong>HTML</strong> siguiente:</p>
+
+<pre><code>&lt;div class="marco_barra"&gt;
+    &lt;div class="barra_avance" style="width: 50%;"&gt;50%&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Podemos ver que tenemos 2 divs, el primero es el contenedor el cual esta instanciado a la clase <strong>marco_barra</strong>, el 2do es propiamente la barra el cual es contenida y pertenece a la clase <strong>barra_avance</strong>, como lo podemos ver en la siguiente imagen.</p>
+
+<p><img src="img/barra_explicacion.png" alt="Barra de procesos y sus partes" title="" /></p>
+
+<p>Como podemo ver las clases:</p>
+
+<ul>
+<li><p><strong>marco_barra</strong> Define la parte gris clara(borde redondeado),el fondo gris obsculo, las sombras del contorno del marco, entre otras cosas.</p></li>
+<li><p><strong>barra_avance</strong> Define la barra de proceso es la parte del gradiente azul, al tiempo que define la tipografia que nos indica que va avanzado un 50%.</p></li>
+</ul>
+
+<p>Bien ahora atienda al siguiente código <strong>css</strong>:</p>
+
+<pre><code><b>div.marco_barra</b>, .ui-progressbar {
+    background: #282828;
+    border: 5px solid #BFBFBF;
+    width: 100%;
+    height: 30px;
+    padding: 0;
+    /* trataremos de poner las esquinas redondeadas */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    /* trataremos de poner sombras tanto internamente como externamente del marco de la barra de proceso */
+    -webkit-box-shadow:inset 2px 2px 5px #212121,inset -2px -2px 5px #000000,5px 5px 5px #CDDDE6;
+    -moz-box-shadow:inset 2px 2px 5px #212121,inset -2px -2px 5px #000000,5px 5px 5px #CDDDE6;
+    -ms-box-shadow:inset 2px 2px 5px #212121,inset -2px -2px 5px #000000,5px 5px 5px #CDDDE6;
+    -o-box-shadow: inset 2px 2px 5px #212121,inset -2px -2px 5px #000000,5px 5px 5px #CDDDE6;
+    box-shadow:inset 2px 2px 5px #212121,inset -2px -2px 5px #000000,5px 5px 5px #CDDDE6;
+}
+div.marco_barra <b>div.barra_avance</b>,
+.ui-progressbar .ui-progressbar-value{
+    height: 28px;
+    /* agregamos el borde para que de un efecto de sobre-marco */
+    border:1px solid #365077;
+    border-top:1px solid #4BA3DE;
+    border-left:1px solid #4BA3DE;
+    /* trataremos de poner un fondo con un gradiente si no se puede lo pondra con un color solido */
+    background: #00A5D4;
+    background-repeat: repeat-x;
+    background-image: -moz-linear-gradient(top, #00A5D4, #006C8B);
+    background-image: -ms-linear-gradient(top, #FF5000, #003364);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#FF5000), to(#003364));
+    background-image: -webkit-linear-gradient(top, #FF5000, #003364);
+    background-image: -o-linear-gradient(top, #FF5000, #003364);
+    background-image: linear-gradient(top, #FF5000, #003364);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF5000', endColorstr='#003364',GradientType=0 );
+    /* trataremos de poner las esquinas redondeadas */
+    -moz-border-radius:0 5px 5px 0;
+    -webkit-border-radius:0 5px 5px 0;
+    -o-border-radius:0 5px 5px 0;
+    border-radius:0 5px 5px 0;
+    /* Cuestiones relacionadas con la tipografia */
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 1px 1px 1px #66CFED,-1px -1px 2px #23A1C5;
+    text-align: right;
+}</code></pre>
+
+<h2>Haciendo combinaciones(Combos).</h2>
+
+<p><img src="img/combitaciones.gif" alt="combitaciones" title="" /></p>
+
+<p>Este codigo <strong>css</strong> intenta ser lo más <strong>crossbrowser</strong> posible, imaginemos que queremos poner las barras de en un espacio mas pequeño o quizas necesitamos barras de distintos colores, tratare de explicar como conseguir este comportamiento explicando el 1er caso, para esto vamos a definir dos clases la clase <strong>mini</strong> para el marco y la clase <strong>mini</strong> contenida dentro de otra clase <strong>mini</strong> como se puede ver en el siguiente codigo <strong>HTML</strong>:</p>
+
+<pre><code>&lt;div class="marco_barra mini" style="width: 200px;"&gt;
+    &lt;div class="barra_avance mini" style="width: 50%;"&gt;50%&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Los cambios necesarios como se puede ver en el siguiente código <strong>CSS</strong> que se le agregara al código antes mostrado:</p>
+
+<pre><code>/* definicion para las barras minis */
+div.mini{
+    border: 2px solid #BFBFBF;
+    height: 20px;
+}
+
+div.mini div.mini{
+    height: 18px;
+    font-weight: bold;
+    font-size: 1px;
+    -moz-border-radius:0 4px 4px 0;
+    -webkit-border-radius:0 4px 4px 0;
+    -o-border-radius:0 4px 4px 0;
+    border-radius:0 4px 4px 0;
+}
+</code></pre>
+
+<h3>Ressultado</h3>
+
+<div class="marco_barra mini" style="width: 200px;">
+    <div class="barra_avance mini" style="width: 50%;">50%</div>
+</div>
+
+<h2>Barra animada</h2>
+
+<p><img src="img/movimiento.gif" alt="Barra con movimiento" title="" /></p>
+
+<p>Tomando esta logica podemos agregar tipos de barras como necesitemos, para esto vamos agregar una barra de color roja del tipo animada, esto lo haremos con una imagen <strong>gif</strong> que se va ir desplazando.</p>
+
+<p>Para la barra animada lo primero que necesitamos es la imagen <strong>gif</strong> la puedes hacer con el <strong>inkscape</strong> y <strong>gimp</strong>, el hacer una animación en la barra es muy similar a un <strong>sprite csss</strong> solo que posteriormente tienes que generrar la imagen animada con el <strong>gimp</strong>(adjunto los archivos).</p>
+
+<p>Lo primero que tienes que hacer es una <em>distribucion uniforme</em> sobre los elementos que necesitas como se puede ver en la siguiente imagen:</p>
+
+<p><img src="img/distribucion_uniforme.png" alt="distribucion horizontal uniforme" title="" /></p>
+
+<p>Posteriormente se exportan las imagenes base y con estas se genera una animacion con el <strong>gimp</strong> en este caso seran 3 capaz generando con esto una animación con 3 transiciones cada una sera cambiada en un intervalo de 333 <em>milisegundos</em>.</p>
+
+<p><img src="img/generando_gif.png" alt="distribucion horizontal uniforme" title="" /></p>
+
+<h3>Ressultado</h3>
+
+<div class="marco_barra animada">
+    <div class="barra_avance animada" style="width: 50%;">50%</div>
+</div>
+
+<h2>Agregando animación en JavaScript(nocaut)</h2>
+
+<p><img src="img/nocaut.gif" alt="Barra con movimiento con Javascript" title="" /></p>
+
+<p>Si queremos darle la animación de como se va uncrementando una barra usted lo primero que tiene que hacer es agregarle un identificador a la barra:</p>
+
+<h3>Codigo HTML</h3>
+
+<pre><code>&lt;div class="marco_barra animada"&gt;
+    &lt;div id="barra_animada_js" class="barra_avance animada" style="width: 50%;"&gt;50%&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Posteriormente puede hacer una funcion que reciba 3 paramentros el:</p>
+
+<ul>
+<li><strong>id</strong> del elemento a animar</li>
+<li>El <strong>incremento</strong> (ó decremento)</li>
+<li>El <strong>intervalo</strong> de la transición(en milisegundos).</li>
+</ul>
+
+<h3>Función animarBarra JavaScript:</h3>
+
+<p>Dejo aquí un ejemplo de la funcion la cual la puedes adaptar a tus necesidades:</p>
+
+<pre><code>&lt;script language="Javascript"  type="text/javascript"&gt;
+    /*Anima una barra */
+    function animarBarra(id, incremento, intervalo){
+        e = document.getElementById(id);
+        var val = parseInt(e.innerHTML) + parseInt(incremento);
+        if(val&gt;100){
+            val=(incremento&gt;0)? 0 : 100;
+        }else{
+            if(val&lt;0){
+                val=(incremento&lt;0)? 100 : 0;
+        }}
+        e.innerHTML = val+'%';
+        e.style.width = val+'%';
+        setTimeout("animarBarra('"+id+"', "+incremento+", "+intervalo+")", intervalo);
+    }
+&lt;/script&gt;
+</code></pre>
+
+<h3>Llamada</h3>
+
+<p>En este caso vamos a llamar a la función para que nos anime el elemento con id <strong>barra_animada_js</strong>, donde deseamos un incremento de 10 cada 200milisegundos, como se muestra:</p>
+
+<pre><code>&lt;script language="Javascript"  type="text/javascript"&gt;
+    window.onload = function (){
+        animarBarra('barra_animada_js',10,200);
+    }
+&lt;/script&gt;
+</code></pre>
+
+<h3>Resultado</h3>
+
+<div class="marco_barra animada">
+    <div id="barra_animada_js" class="barra_avance animada" style="width: 50%;">50%</div>
+</div>
+
+<h2>Finalizando con un frameWork!.</h2>
+
+<p>Finalmente este principio <strong>css</strong> es tambien empleado en la interfaz de usuario del <strong>jQuery</strong>, la unica diferencia es que:</p>
+
+<ul>
+<li>La clase <strong>marco_barra</strong> es nombrada como <strong>ui-progressbar</strong>.</li>
+<li>La clase <strong>barra_avance</strong> es nombrada como <strong>ui-progressbar-value</strong>.</li>
+</ul>
+
+<p>Bien pues con esto y siguiendo la documentación de <strong>jQuery ui</strong> podemos animar una barra con el siguiente código.</p>
+
+<h2>Conclusiones.</h2>
+
+<p>Sigiendo estos principios basicos de css y javascript podemos encontrar varios algunos proyectos como:</p>
+
+<ul>
+<li><a href="http://jsullivan.github.com/CSS3-Progress-bars">http://jsullivan.github.com/CSS3-Progress-bars</a></li>
+<li><a href="http://jqueryui.com/demos/">http://jqueryui.com/demos/</a></li>
+</ul>
+
+<p>Estos principios defienen buenas practicas sin embargo personalmente derrepente siento que nos genera codigo extra que muchas veces no lo necesitamos p.e. si en algun proyecto solo vamos a necesitar una unica clase de barra(con un unico comportamiento) entonces la mejor opción seria seguir estos principios y generar nuestro propio código <strong>css</strong> y <strong>javascript</strong>(ó en su defecto quitar la '<em>paja extra</em>') lo cual hara más ligera la carga para nuestro navegador ademas que el tamaño de la descarga de nuestras librerias sera mucho menor.</p>
+
+<h2>Comentarios.</h2>
+
+<blockquote>
+  <blockquote>
+  <p>Lo siento estoy buscando algun mecanismo de agregar comentarios en esta sección.</p>
+</blockquote>
+
+<p></blockquote></p>
+
+
+</div>
+</body>
+</html>
